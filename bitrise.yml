@@ -1,0 +1,61 @@
+---
+format_version: '13'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: react-native
+workflows:
+  deploy:
+    description: |
+      Runs a build on Expo Application Services (EAS).
+
+      Next steps:
+      - Configure the `Run Expo Application Services (EAS) build` Step's `Access Token` input.
+      - Check out [Getting started with Expo apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-expo-apps.html).
+      - For an alternative deploy workflow checkout the [(React Native) Expo: Build using Turtle CLI recipe](https://github.com/bitrise-io/workflow-recipes/blob/main/recipes/rn-expo-turtle-build.md).
+    steps:
+    - git-clone@8: {}
+    - npm@1:
+        inputs:
+        - command: install
+    - run-eas-build@0:
+        inputs:
+        - platform: "$PLATFORM"
+    - deploy-to-bitrise-io@2: {}
+    envs:
+    - opts:
+        is_expand: false
+      BACKEND_PORT: https://pho-nix.ca/Phonix-backend/
+  primary:
+    description: |
+      Installs dependencies.
+
+      Next steps:
+      - Add tests to your project and configure the workflow to run them.
+      - Check out [Getting started with Expo apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-expo-apps.html).
+    steps:
+    - git-clone@8: {}
+    - restore-npm-cache@1: {}
+    - npm@1:
+        inputs:
+        - command: install
+    - save-npm-cache@1: {}
+    - deploy-to-bitrise-io@2: {}
+    envs:
+    - opts:
+        is_expand: false
+      BACKEND_PORT: https://pho-nix.ca/Phonix-backend/
+meta:
+  bitrise.io:
+    stack: osx-xcode-16.0.x
+    machine_type_id: g2-m1.4core
+app:
+  envs:
+  - PLATFORM: ios
+    opts:
+      is_expand: false
+trigger_map:
+- push_branch: development
+  type: push
+  workflow: primary
+- pull_request_source_branch: "*"
+  type: pull_request
+  workflow: primary

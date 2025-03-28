@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "Phonix",
+    "slug": "Phonix",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "com.stellerphonix.Phonix",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "infoPlist": {
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": [
+              "com.googleusercontent.apps.968035193021-7kavl9dftquqj22j4s43t62jbn6rh29v"
+            ]
+          }
+        ]
+      },
+      "bundleIdentifier": "com.stellerphonix.Phonix",
+      "newArchEnabled": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.stellerphonix.Phonix",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        ["ACCESS_NETWORK_STATE", "INTERNET"]
+      ],
+      "newArchEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a783d3cc-2986-4044-8d9e-73c26ef01968"
+      }
+    }
+  }
+}
+
