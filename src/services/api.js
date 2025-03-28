@@ -122,6 +122,12 @@
 
 
 
+
+
+
+
+
+// working code
 export const getLearningModules = async (token) => {
   try {
     console.log('Calling API with token:', token);
@@ -132,7 +138,7 @@ export const getLearningModules = async (token) => {
     //   },
     // });
 
-    const response = await fetch('https://efff-2001-569-7d09-e400-c06f-a0cc-dc78-58bb.ngrok-free.app/api/learning/chapters', {
+    const response = await fetch('https://1088-2001-569-7d09-e400-ac30-332d-bbd9-3a3b.ngrok-free.app/api/learning/chapters', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -160,7 +166,7 @@ export const getLearningModules = async (token) => {
     //   },
     // });
 
-    const response = await fetch(`https://efff-2001-569-7d09-e400-c06f-a0cc-dc78-58bb.ngrok-free.app/api/learning/chapter/${chapterId}`, {
+    const response = await fetch(`https://1088-2001-569-7d09-e400-ac30-332d-bbd9-3a3b.ngrok-free.app/api/learning/chapter/${chapterId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -188,7 +194,7 @@ export const getLearningModules = async (token) => {
     //   },
     // });
 
-    const response = await fetch(`https://efff-2001-569-7d09-e400-c06f-a0cc-dc78-58bb.ngrok-free.app/api/learning/module/${moduleId}`, {
+    const response = await fetch(`https://1088-2001-569-7d09-e400-ac30-332d-bbd9-3a3b.ngrok-free.app/api/learning/module/${moduleId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -219,7 +225,7 @@ export const getLearningModules = async (token) => {
     //   },
     // });
 
-    const response = await fetch(`https://efff-2001-569-7d09-e400-c06f-a0cc-dc78-58bb.ngrok-free.app/api/learning/complete/${moduleId}/${chapterId}`, {
+    const response = await fetch(`https://1088-2001-569-7d09-e400-ac30-332d-bbd9-3a3b.ngrok-free.app/api/learning/complete/${moduleId}/${chapterId}`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
